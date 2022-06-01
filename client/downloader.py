@@ -7,7 +7,7 @@ import subprocess
 URL = 'http://127.0.0.1:5000/uploads/'  # TODO: Change me
 
 # name of file to be downloaded
-FILENAME =  'bye_server.py'  # TODO: Change me
+FILENAME =  'hello_server.py'  # TODO: Change me
 
 # client directory for file to be downloaded to
 LOCAL_DIR = os.path.abspath(os.getcwd())  # TODO: Change me
@@ -25,10 +25,4 @@ if response.status_code == 404:
 
 with open(FILEPATH, 'wb') as f:
 	f.write(response.content)
-
-process = subprocess.Popen(COMMAND.split(), stdout=subprocess.PIPE)
-output, error = process.communicate()
-
-print(output)
-
 

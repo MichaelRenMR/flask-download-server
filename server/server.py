@@ -4,8 +4,10 @@ import os.path
 
 app = Flask(__name__)
 
+cwd = os.path.abspath(os.getcwd())
+
 # Server folder containing uploads
-app.config['UPLOAD_FOLDER'] = '/home/michael/Desktop/Su22/clientserverDemo/server/uploads'  # TODO: Change me
+app.config['UPLOAD_FOLDER'] = os.path.join(cwd, 'uploads')  # TODO: Change me
 
 @app.route('/')
 def hello_world():
@@ -20,10 +22,10 @@ def get_file(filename):
 
 
 # Convenience method for viewing uploads folder
-index = AutoIndex(app, app.config['UPLOAD_FOLDER'], add_url_rules=False)
-@app.route('/uploads/')
-def autoindex():
-	return index.render_autoindex('.')
+# index = AutoIndex(app, app.config['UPLOAD_FOLDER'], add_url_rules=False)
+# @app.route('/uploads/')
+# def autoindex():
+# 	return index.render_autoindex('.')
 
 
 
